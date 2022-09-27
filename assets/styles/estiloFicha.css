@@ -1,0 +1,145 @@
+*{
+	margin: 0;
+}
+/*
+dark night
+#22223b
+
+regular night
+#4a4e69
+
+cast shadow
+#9a8c98
+
+soothing wall
+#c9ada7
+
+moonlight
+#f2e9e4
+
+*/
+
+header{
+	width:100%;
+	height: 200px;
+}
+
+header img{
+	width:100%;
+	height:220px;
+}
+h3{
+	color:#505050;
+	float:right;
+	padding:0.6rem;
+	margin-right:1rem;
+	padding-bottom:-0.3rem;
+	margin-bottom:-0.8rem;
+}
+ul li{
+	display:inline;
+	font-size:60%;
+	margin-left:-2.4rem;
+	padding-right:28%;
+}
+.headerInfo{
+	margin-top: -120px;
+	padding: 1rem;
+	float:bottom;
+	color:darkgray;
+}
+.headerInfo input{
+	padding-left: 2%;
+	color:whitesmoke;
+	border:none;
+	background:transparent;
+	opacity:0.8;
+	/*border-radius: 20px;*/
+	text-shadow: 2px 2px 4px #000000;
+}
+.infoSub{
+	color:whitesmoke;
+	opacity:0.8;
+	text-shadow: 2px 2px 4px #000000;
+}
+.infoSub input{
+	font-size:1rem;
+	margin-left:-2%;
+	flex:15%;
+	margin-right:-5%;
+}
+
+.headerInfo input:focus{
+	color:#505050;
+	border:none;
+	background:whitesmoke;
+	opacity:0.8;
+	border-radius: 20px;
+	/*text-shadow: 2px 2px 4px #000000;*/
+}
+
+body{
+	background-color:#dddddd;
+	background-image: url("../images/background5.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	
+}
+
+.col_01{
+	flex:15%;
+	text-align:center;
+	padding: 0.5%;
+}
+.col_02{
+	flex:80%;
+	padding: 0.8%;
+}
+
+.row{
+	width:100%; background-color:#dddddd; 
+	/*border-radius:10px; */
+	color: #505050;
+}
+.row input{
+	color:#303030;
+	width: 15%;
+	border-radius:9px;
+	background-color:#eeeeee;
+	border:none;
+	text-align:center:
+}
+.atributosMutaveis{
+	margin: 0.5%;
+	border-radius:10px;
+	flex:25%;
+	background-color:white;
+	border: solid #bbbbbb 2px;
+	flex:45%;
+	opacity:0.9;
+}
+
+.atributosFixos{
+	margin: 0.5%;
+	background-color:white;
+	border-radius:10px;
+	flex:25%;
+	border: solid #bbbbbb 2px;
+	background-color:white;
+	opacity:0.9;
+}
+.atributosEstaticos{
+	//tirei border e cor do background, mas acredito que devo utilizar títulos para cada bainel e nomear as colunas correspondentes
+	margin: 0.5%;
+	border-radius:10px;
+	flex:25%;
+	background-color:white;
+	border: solid #bbbbbb 2px;
+	opacity:0.9;
+}
+
+
+.atributosMutaveis input{
+	border-radius:5px;
+	text-align:center;
+}

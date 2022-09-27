@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Modelo de Ficha LDA</title>
+		<meta name="description" content="Ficha de Personagem de RPG - Sistema: LDA">
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+		<meta name="author" content="Mauro B H Jr">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Estilo da página e ícone -->
+		<link rel="icon" type="image/icon" href="./assets/images/favicon.png"/>
+		<link rel="stylesheet" href="./assets/styles/estiloFichaPessoal.css"/>
+	</head>
+	<body>
+	<header>
+		<div class="headerImg">
+			<!-- retirar margens e determinar dimenções do cabeçalho -->
+			<h4></h4>
+			
+			<div class="headerInfo">
+				<!-- colocar display inline ou avaliar a opção de trabalhar com flexbox -->
+				<div>
+					<input id="nomePersonagem" name="nomePersonagem" type="text" placeholder="NOME DA PERSONAGEM" style="font-size:3rem;"/>
+				</div>
+				<!-- Colocar level, raça, elemento e etc com option e medificadores para grandeza da raça e nível do elemento -->
+				<div class="infoSub">
+					<b style="padding-left:3%;">Raça: <input id="especiePersonagem" name="especiePersonagem" type="text" placeholder="Espécie"/></b>
+					<b>Estilo: <input id="estiloPersonagem" name="estiloPersonagem" type="text" placeholder="Classe" style="width:20%;"/></b>
+					<b>Lv: <input id="levelPersonagem" name="levelPersonagem" type="number" placeholder="LEVEL"style="width:10%;"/></b>
+					<b>Elemento: <input id="elementoPersonagem" name="elementoPersonagem" type="text" placeholder="ELEMENTO"/></b>
+				</div>
+			</div>
+		</div>
+	</header>
+		<div class="containerTopo" style="display:flex;">
+			<div class="itemBox_left">
+				<h3>Atributos Mutáveis</h3>
+				<br/>
+				<br/>
+				<hr style="margin:0.5rem; height: 0.2rem; background: #505050;">
+				<ul>
+					<li>Atributo</li>
+					<li>Base</li>
+					<li>Equip</li>
+					<li>Skill</li>
+					<li style="padding-right:0;">Total</li>
+				</ul>
+				<div class="row">
+					<form oninput="hp_total.value=parseInt(hp_a.value)+parseInt(hp_b.value)+parseInt(hp_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>HP: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="hp_a" name="hp" placeholder="Base"/>
+							<input type="number" id="hp_b" name="hp" placeholder="Equips"/>
+							<input type="number" id="hp_c" name="hp" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="hp_total" for="hp_a hp_b hp_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="mp_total.value=parseInt(mp_a.value)+parseInt(mp_b.value)+parseInt(mp_c.value)">
+						<div class="div_row_esquerda">
+							<h4>MP: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="mp_a" name="mp" placeholder="Base"/>
+							<input type="number" id="mp_b" name="arc" placeholder="Equips"/>
+							<input type="number" id="mp_c" name="arc" placeholder="Skills"/>
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="mp_total" for="mp_a mp_b mp_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<form oninput="atk_total.value=parseInt(atk_a.value)+parseInt(atk_b.value)+parseInt(atk_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>AT: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="atk_a" name="atk" placeholder="Base"/>
+							<input type="number" id="atk_b" name="atk" placeholder="Equips"/>
+							<input type="number" id="atk_c" name="atk" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="atk_total" for="atk_a atk_b atk_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="mAT_total.value=parseInt(mAT_a.value)+parseInt(mAT_b.value)+parseInt(mAT_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>mAT: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="mAT_a" name="mAT" placeholder="Base"/>
+							<input type="number" id="mAT_b" name="mAT" placeholder="Equips"/>
+							<input type="number" id="mAT_c" name="mAT" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="mAT_total" for="mAT_a mAT_b mAT_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				
+				<div class="row">
+					<form oninput="DD_total.value=parseInt(DD_a.value)+parseInt(DD_b.value)+parseInt(DD_c.value)">
+						<div class="div_row_esquerda">
+							<h4>DD: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="DD_a" name="DD" placeholder="Base"style="background-color:#505050;"/>
+							<input type="number" id="DD_b" name="DD" placeholder="Equips"/>
+							<input type="number" id="DD_c" name="DD" placeholder="Skills"/>
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="DD_total" for="DD_a DD_b DD_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="def_total.value=parseInt(def_a.value)+parseInt(def_b.value)+parseInt(def_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>Def: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="def_a" name="def" placeholder="Base"/>
+							<input type="number" id="def_b" name="def" placeholder="Equips"/>
+							<input type="number" id="def_c" name="def" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="def_total" for="def_a def_b def_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<form oninput="mDEF_total.value=parseInt(mDEF_a.value)+parseInt(mDEF_b.value)+parseInt(mDEF_c.value)">
+						<div class="div_row_esquerda">
+							<h4>mDEF: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="mDEF_a" name="mDEF" placeholder="Base"/>
+							<input type="number" id="mDEF_b" name="mDEF" placeholder="Equips"/>
+							<input type="number" id="mDEF_c" name="mDEF" placeholder="Skills"/>
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="mDEF_total" for="mDEF_a mDEF_b mDEF_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="rdm_total.value=parseInt(rdm_a.value)+parseInt(rdm_b.value)+parseInt(rdm_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>RDM: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="rdm_a" name="rdm" placeholder="Base" style="background-color:#505050;"/>
+							<input type="number" id="rdm_b" name="rdm" placeholder="Equips"/>
+							<input type="number" id="rdm_c" name="rdm" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="rdm_total" for="rdm_a rdm_b rdm_c"></output></h4>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="itemBox_right">
+				<h3>Atributos Fixos</h3>
+				<br/>
+				<br/>
+				<hr style="margin:0.5rem; height: 0.2rem; background: #505050;">
+				<ul>
+					<li>Atributo</li>
+					<li>Base</li>
+					<li>Equip</li>
+					<li>Skill</li>
+					<li style="padding-right:0;">Total</li>
+				</ul>
+				<div class="row">
+					<form oninput="CP_total.value=parseInt(CP_a.value)+parseInt(CP_b.value)+parseInt(CP_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>CP: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="CP_a" name="CP" placeholder="Base" value="1"/>
+							<input type="number" id="CP_b" name="CP" placeholder="Equips" value="0"/>
+							<input type="number" id="CP_c" name="CP" placeholder="Skills" value="0"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="CP_total" for="CP_a CP_b CP_c">1</output></h4>
+						</div>
+					</form>
+				</div>
+				<br/>
+				<div class="row">
+					<form oninput="com_total.value=parseInt(com_a.value)+parseInt(com_b.value)+parseInt(com_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>COM: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="com_a" name="com" placeholder="Base" value="0"/>
+							<input type="number" id="com_b" name="com" placeholder="Equips" value="0"/>
+							<input type="number" id="com_c" name="com" placeholder="Skills" value="0"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="com_total" for="com_a com_b com_c">0</output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="foco_total.value=parseInt(foco_a.value)+parseInt(foco_b.value)+parseInt(foco_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>FOCO: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="foco_a" name="foco" placeholder="Base" value="0"/>
+							<input type="number" id="foco_b" name="foco" placeholder="Equips" value="0"/>
+							<input type="number" id="foco_c" name="foco" placeholder="Skills" value="0"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="foco_total" for="foco_a foco_b foco_c">0</output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<form oninput="com_total.value=parseInt(com_a.value)+parseInt(com_b.value)+parseInt(com_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>HIT: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="com_a" name="com" placeholder="Base" value="0"/>
+							<input type="number" id="com_b" name="com" placeholder="Equips" value="0"/>
+							<input type="number" id="com_c" name="com" placeholder="Skills" value="0"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="com_total" for="com_a com_b com_c">0</output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="foco_total.value=parseInt(foco_a.value)+parseInt(foco_b.value)+parseInt(foco_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>SPD: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="foco_a" name="foco" placeholder="Base" value="0"/>
+							<input type="number" id="foco_b" name="foco" placeholder="Equips" value="0"/>
+							<input type="number" id="foco_c" name="foco" placeholder="Skills" value="0"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="foco_total" for="foco_a foco_b foco_c">0</output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<form oninput="com_total.value=parseInt(com_a.value)+parseInt(com_b.value)+parseInt(com_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>RST: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="com_a" name="com" placeholder="Base" value="0"/>
+							<input type="number" id="com_b" name="com" placeholder="Equips" value="0"/>
+							<input type="number" id="com_c" name="com" placeholder="Skills" value="0"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="com_total" for="com_a com_b com_c">0</output></h4>
+						</div>
+					</form>
+				</div>
+				<h3>Constituição</h3>
+				<br/>
+				<br/>
+				<hr style="margin:0.5rem; height: 0.2rem; background: #505050;">
+				<ul>
+					<li>MAX</li>
+					<li>-==</li>
+					<li>Perdida</li>
+					<li>==-</li>
+					<li style="padding-right:0;">Total</li>
+				</ul>
+				<div class="row">
+					<form oninput="constituicao_total.value=parseInt('10')+parseInt(constituicao_perdida.value)"> 
+						<div class="div_row_esquerda">
+							<h4>10</h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="constituicao_perdida" name="CP" placeholder="0" value="0" style="width:100%;"/>
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="constituicao_total" for="constituicao_perdida">10</output></h4>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="containerMeio" style="display:flex;">
+			<div class="itemBox_left">
+				<h3>Equipamentos</h3>
+				<br/>
+				<br/>
+				<hr style="margin:0.5rem; height: 0.2rem; background: #505050;">
+				<ul>
+					<li>Espaço</li>
+					<li>-==</li>
+					<li>Equipamento</li>
+					<li>==-</li>
+					<li style="padding-right:0;">Grade</li>
+				</ul>
+				<div class="row">
+					<form action="/action_page.php" method="get"> 
+						<div class="div_row_esquerda">
+							<h4>Mão 01: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="text" id="equip_mao01" name="equip_mao01" placeholder="Equipamento da mão direita" style="width:100%;"/>
+						</div>
+						<div class="div_row_direita">
+							<input list="raridade" name="equip_raridade" id="equip_raridade" style="width:60%;">
+							<datalist id="raridade">
+								<option value="Tier 01">
+								<option value="Tier 02">
+								<option value="Tier 03">
+								<option value="Tier 04">
+							</datalist>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="hp_total.value=parseInt(hp_a.value)+parseInt(hp_b.value)+parseInt(hp_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>Mão 02: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="text" id="equip_mao01" name="equip_mao01" placeholder="Equipamento da mão direita" style="width:100%;"/>
+						</div>
+						<div class="div_row_direita">
+							<input type="number" id="equip_mao01" name="equip_mao01" placeholder="Tier 01" style="width:60%;"/>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<form oninput="hp_total.value=parseInt(hp_a.value)+parseInt(hp_b.value)+parseInt(hp_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>Vestimenta: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="text" id="equip_mao01" name="equip_mao01" placeholder="Equipamento da mão direita" style="width:100%;"/>
+						</div>
+						<div class="div_row_direita">
+							<input type="number" id="equip_mao01" name="equip_mao01" placeholder="Tier 01" style="width:60%;"/>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="hp_total.value=parseInt(hp_a.value)+parseInt(hp_b.value)+parseInt(hp_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>Acessório 01: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="text" id="equip_mao01" name="equip_mao01" placeholder="Equipamento da mão direita" style="width:100%;"/>
+						</div>
+						<div class="div_row_direita">
+							<input type="number" id="equip_mao01" name="equip_mao01" placeholder="Tier 01" style="width:60%;"/>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<form oninput="hp_total.value=parseInt(hp_a.value)+parseInt(hp_b.value)+parseInt(hp_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>Acessório 02: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="text" id="equip_mao01" name="equip_mao01" placeholder="Equipamento da mão direita" style="width:100%;"/>
+						</div>
+						<div class="div_row_direita">
+							<input type="number" id="equip_mao01" name="equip_mao01" placeholder="Tier 01" style="width:60%;"/>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="hp_total.value=parseInt(hp_a.value)+parseInt(hp_b.value)+parseInt(hp_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>Acessório 03: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="text" id="equip_mao01" name="equip_mao01" placeholder="Equipamento da mão direita" style="width:100%;"/>
+						</div>
+						<div class="div_row_direita">
+							<input type="number" id="equip_mao01" name="equip_mao01" placeholder="Tier 01" style="width:60%;"/>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<form oninput="hp_total.value=parseInt(hp_a.value)+parseInt(hp_b.value)+parseInt(hp_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>Acessório 04: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="text" id="equip_mao01" name="equip_mao01" placeholder="Equipamento da mão direita" style="width:100%;"/>
+						</div>
+						<div class="div_row_direita">
+							<input type="number" id="equip_mao01" name="equip_mao01" placeholder="Tier 01" style="width:60%;"/>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="hp_total.value=parseInt(hp_a.value)+parseInt(hp_b.value)+parseInt(hp_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>Acessório 05: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="text" id="equip_mao01" name="equip_mao01" placeholder="Equipamento da mão direita" style="width:100%;"/>
+						</div>
+						<div class="div_row_direita">
+							<input type="number" id="equip_mao01" name="equip_mao01" placeholder="Tier 01" style="width:60%;"/>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="itemBox_right">
+				<h3>Atributos Estáticos</h3>
+				<br/>
+				<br/>
+				<hr style="margin:0.5rem; height: 0.2rem; background: #505050;">
+				<ul>
+					<li>Atributo</li>
+					<li>Ficha</li>
+					<li>Equip</li>
+					<li>Skill</li>
+					<li style="padding-right:0;">Total</li>
+				</ul>
+				<div class="row">
+					<form oninput="agi_total.value=parseInt(agi_a.value)+parseInt(agi_b.value)+parseInt(agi_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>AGI: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="agi_a" name="agi" placeholder="Base"/>
+							<input type="number" id="agi_b" name="agi" placeholder="Equips"/>
+							<input type="number" id="agi_c" name="agi" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="agi_total" for="agi_a agi_b agi_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="arc_total.value=parseInt(arc_a.value)+parseInt(arc_b.value)+parseInt(arc_c.value)">
+						<div class="div_row_esquerda">
+							<h4>ARC: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="arc_a" name="arc" placeholder="Base"/>
+							<input type="number" id="arc_b" name="arc" placeholder="Equips"/>
+							<input type="number" id="arc_c" name="arc" placeholder="Skills"/>
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="arc_total" for="arc_a arc_b arc_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<form oninput="civ_total.value=parseInt(civ_a.value)+parseInt(civ_b.value)+parseInt(civ_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>CIV: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="civ_a" name="civ" placeholder="Base"/>
+							<input type="number" id="civ_b" name="civ" placeholder="Equips"/>
+							<input type="number" id="civ_c" name="civ" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="civ_total" for="civ_a civ_b civ_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="dex_total.value=parseInt(dex_a.value)+parseInt(dex_b.value)+parseInt(dex_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>DEX: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="dex_a" name="dex" placeholder="Base"/>
+							<input type="number" id="dex_b" name="dex" placeholder="Equips"/>
+							<input type="number" id="dex_c" name="dex" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="dex_total" for="dex_a dex_b dex_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				
+				<div class="row">
+					<form oninput="for_total.value=parseInt(for_a.value)+parseInt(for_b.value)+parseInt(for_c.value)">
+						<div class="div_row_esquerda">
+							<h4>FOR: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="for_a" name="for" placeholder="Base"/>
+							<input type="number" id="for_b" name="for" placeholder="Equips"/>
+							<input type="number" id="for_c" name="for" placeholder="Skills"/>
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="for_total" for="for_a for_b for_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="per_total.value=parseInt(per_a.value)+parseInt(per_b.value)+parseInt(per_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>PER: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="per_a" name="per" placeholder="Base"/>
+							<input type="number" id="per_b" name="per" placeholder="Equips"/>
+							<input type="number" id="per_c" name="per" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="per_total" for="per_a per_b per_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+					<form oninput="sab_total.value=parseInt(sab_a.value)+parseInt(sab_b.value)+parseInt(sab_c.value)">
+						<div class="div_row_esquerda">
+							<h4>SAB: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="sab_a" name="sab" placeholder="Base"/>
+							<input type="number" id="sab_b" name="sab" placeholder="Equips"/>
+							<input type="number" id="sab_c" name="sab" placeholder="Skills"/>
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="sab_total" for="sab_a sab_b sab_c"></output></h4>
+						</div>
+					</form>
+				</div>
+				<div class="row" style="background-color:#cccccc;">
+					<form oninput="sor_total.value=parseInt(sor_a.value)+parseInt(sor_b.value)+parseInt(sor_c.value)"> 
+						<div class="div_row_esquerda">
+							<h4>SOR: </h4>
+						</div>
+						<div class="div_row_centro">
+							<input type="number" id="sor_a" name="sor" placeholder="Base"/>
+							<input type="number" id="sor_b" name="sor" placeholder="Equips"/>
+							<input type="number" id="sor_c" name="sor" placeholder="Skills"/>	
+						</div>
+						<div class="div_row_direita">
+							<h4><output name="sor_total" for="sor_a sor_b sor_c"></output></h4>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="containerMeio" style="display:flex;">
+			<div class="itemBox_left" style="width:95%; height:600px; flex:90%;">
+				<h3>Anotações</h3>
+				<br/>
+				<br/>
+				<hr style="margin:0.5rem; height: 0.2rem; background: #505050;">
+				<ul>
+					<li>Raciais</li>
+					<li>Habilidades</li>
+					<li>Conhecimento</li>
+					<li>Mochila</li>
+					<li style="padding-right:0;">Outros</li></ul>
+				
+					<div class="container_anotacoes">
+						<textarea name="anotacoes_area" placeholder="Digite uma mensagem" style="margin:1%; :width:94%; padding:1%; height:200; margin-top:-1%;"></textarea>
+					</div>
+			</div>
+		</div>
+	</body>
+</html>

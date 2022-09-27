@@ -1,0 +1,96 @@
+sobre as divisórias de atributos:
+pensar em uma nova paleta de cores considerando o modelo desejado de colunas que vou adotar
+
+    TÍTULO Do Container
+    ---------------------------------------------------------- Divisória
+    título da coluna    outro título    mais um título      total
+    label               field           field               totalvalue
+
+
+
+
+EG.:
+
+    Atributos Estáticos
+    -----------------------------------------------------------------
+    atributo    Raça        Equip       habil       total
+    SPD         [   ]       [   ]       [   ]       = XX 
+
+
+
+
+
+
+
+
+
+=================================
+========== 
+=================================
+
+falta ajustar as proporções dos 3 containers
+criar aba de equipamentos
+
+
+colocar pontos disponíveis para cada tab vinculado com level e criar variável de pontos gastos
+
+mudar a cor dos placeholder do head
+
+criar os equips
+
+
+
+
+
+
+
+dex estat
+
+foco
+
+
+----
+-------------------------
+----
+
+
+colocar na .row tipo flex
+criar 3 divs dentro
+div_row_esquerda flex:20
+    na esquerda bota o texto em um h4 talvez ou em P e na direita também
+div_row_centro fle: 60
+div_row_direita flex: 20
+
+
+
+----------------------------------
+--------
+----------------------------------
+
+concertar equipamentos:
+    - Adicionar campo de detalhe
+        - expande com hover, vai exibir grandeza e atributos alternativos, como o atributo do anel
+    
+    - concertar o form que quebra após selecionar uma opção e não permite selecionar outra
+        provavelmente porque o form é chamado antes de dividir entre as 3 divs
+            - Solução atual: criar um form para cada input.
+            Problema com isso: acreditei que teria que formatar toda papagaiada novamente e retirar as 3 div de dentro do form, mas talvez não seja necessário. ou talvez seja, mas daí transforma em uma div ao invés do form e depois formata os CCS's subsequentes em outro lugar
+
+                    ------------------------------
+
+    - Adicionar um Nav vinculado à uma caixa de exibição com as seguintes opções:
+            dá pra colocar todas anotações com hidden como default, mas mudando o valor de hidden pra false ao selecionar a opção.
+        - raça
+        - Estilo de combate
+        - Conhecimentos
+        - Bolsa
+        - Anotações {
+                        - Tracking de Progreço
+                        - Interações/nomes Importantes
+                        - Anotações de Combate
+                        - Outros
+
+lembrete menos importante: Encontrar uma maneira para bloquear RDM e DD de serem editados no valor base
+
+
+Se eu quiser formatar as anotações, então eu teria que criar om "objeto" para cada uma e poder selecionar entre elas, mesma coisa com as skills
